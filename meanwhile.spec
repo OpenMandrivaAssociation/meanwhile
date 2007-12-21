@@ -20,6 +20,7 @@ Group:		System/Libraries
 URL:		http://meanwhile.sourceforge.net/
 
 Source: 	http://kent.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.bz2
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:	glib2-devel >= 2.2
 BuildRequires:	doxygen
