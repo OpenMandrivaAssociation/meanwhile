@@ -7,9 +7,6 @@
 %define lib_major 1
 %define lib_name %mklibname %{name} %{lib_major}
 
-# Hack :-(
-%define __libtoolize /bin/true
-
 Summary:        %Summary
 Name:           %name
 Version:        %version
@@ -20,6 +17,7 @@ Group:		System/Libraries
 URL:		http://meanwhile.sourceforge.net/
 
 Source: 	http://kent.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.bz2
+Patch0:		meanwhile-1.0.2-fix-str-fmt.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:	glib2-devel >= 2.2
@@ -66,15 +64,16 @@ Group: Development/C
 Documentation for the %{name} library. 
 
 %prep
-%setup
+%setup -q
+%patch0 -p0
 
 %build
-%configure
+%configure2_5x
 %make
 
 %install
 rm -rf %buildroot
-%makeinstall
+%makeinstall_std
 
 %clean
 rm -rf %buildroot
