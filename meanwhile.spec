@@ -1,6 +1,6 @@
 %define name   meanwhile 
 %define version 1.0.2
-%define release %mkrel 5
+%define release %mkrel 6
 %define Summary  Lotus Sametime Community Client library
 
 %define lib_name_orig lib%{name}
