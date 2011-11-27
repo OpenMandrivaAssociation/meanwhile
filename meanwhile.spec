@@ -21,6 +21,7 @@ Source: 	http://kent.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.t
 Patch0:		meanwhile-1.0.2-fix-str-fmt.patch
 Patch1:		http://ie.archive.ubuntu.com/gentoo-portage/net-libs/meanwhile/files/meanwhile-1.0.2-presence.patch
 Patch2:		meanwhile-crash.patch
+Patch3:		meanwhile-fix-glib-headers.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:	glib2-devel >= 2.2
@@ -75,6 +76,7 @@ Documentation for the %{name} library.
 %patch0 -p0
 %patch1 -p1
 %patch2 -p0 -b .crash~
+%patch3 -p1 -b .glib~
 
 %build
 %configure2_5x
