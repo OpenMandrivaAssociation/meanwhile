@@ -46,7 +46,7 @@ Summary:	Header files and libraries for %{name}
 Group:		Development/C
 Requires:	%{lib_name} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
-Obsoletes:	%{_lib}%{name}1-devel
+%rename		%{_lib}%{name}1-devel
 
 %description -n	%{lib_devel}
 This package contains the header files and static libraries for %{name}.
@@ -56,8 +56,7 @@ install %{name}-devel.
 %package -n	%{name}-doc
 Summary:	Documentation for the %{name} library
 Group:		Development/C
-Obsoletes:	%{_lib}%{name}1-doc
-Provides:	%{_lib}%{name}1-doc
+%rename		%{_lib}%{name}1-doc
 
 %description -n	%{name}-doc
 Documentation for the %{name} library. 
