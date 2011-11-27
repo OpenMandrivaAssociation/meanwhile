@@ -31,7 +31,6 @@ whiteboard, screen-sharing, and file transfer.
 %package -n	%{lib_name}
 Summary:	Library used for Lotus Sametime connectivity
 Group:		Development/C
-Provides:	%{name} = %{version}-%{release}
 
 %description -n %{lib_name}
 The heart of the Meanwhile Project is the Meanwhile library, providing the
