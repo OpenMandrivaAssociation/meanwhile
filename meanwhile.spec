@@ -20,6 +20,7 @@ URL:		http://meanwhile.sourceforge.net/
 Source: 	http://kent.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		meanwhile-1.0.2-fix-str-fmt.patch
 Patch1:		http://ie.archive.ubuntu.com/gentoo-portage/net-libs/meanwhile/files/meanwhile-1.0.2-presence.patch
+Patch2:		meanwhile-crash.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:	glib2-devel >= 2.2
@@ -73,6 +74,7 @@ Documentation for the %{name} library.
 %setup -q
 %patch0 -p0
 %patch1 -p1
+%patch2 -p0 -b .crash~
 
 %build
 %configure2_5x
