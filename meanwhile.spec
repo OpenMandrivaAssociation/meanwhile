@@ -75,7 +75,7 @@ Documentation for the %{name} library.
 %makeinstall_std
 
 %files -n %{lib_name}
-%doc AUTHORS ChangeLog INSTALL README TODO
+%doc AUTHORS ChangeLog README TODO
 %{_libdir}/libmeanwhile.so.%{lib_major}*
 
 %files -n %{lib_devel}
