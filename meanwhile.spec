@@ -7,7 +7,7 @@ Name:           meanwhile
 Version:        1.0.2
 Release:        7
 
-License:	LGPL
+License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://meanwhile.sourceforge.net/
 
