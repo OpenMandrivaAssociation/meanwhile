@@ -1,4 +1,3 @@
-%define lib_name_orig lib%{name}
 %define lib_major 1
 %define lib_name %mklibname %{name} %{lib_major}
 %define lib_devel %mklibname %{name} -d
@@ -46,9 +45,7 @@ whiteboard, screen-sharing, and file transfer.
 Summary:	Header files and libraries for %{name}
 Group:		Development/C
 Requires:	%{lib_name} = %{version}
-Provides:	%{lib_name_orig}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
-Provides:	lib%{name}-devel = %{version}-%{release}
 Obsoletes:	%{_lib}%{name}1-devel
 
 %description -n	%{lib_devel}
