@@ -43,8 +43,8 @@ whiteboard, screen-sharing, and file transfer.
 %package -n	%{lib_devel}
 Summary:	Header files and libraries for %{name}
 Group:		Development/C
-Requires:	%{lib_name} = %{version}
-Provides:	%{name}-devel = %{version}-%{release}
+Requires:	%{lib_name} = %{EVRD}
+Provides:	%{name}-devel = %{EVRD}
 %rename		%{_lib}%{name}1-devel
 
 %description -n	%{lib_devel}
