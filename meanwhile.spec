@@ -14,7 +14,6 @@ Patch0:		meanwhile-1.0.2-fix-str-fmt.patch
 Patch1:		http://ie.archive.ubuntu.com/gentoo-portage/net-libs/meanwhile/files/meanwhile-1.0.2-presence.patch
 Patch2:		meanwhile-crash.patch
 Patch3:		meanwhile-fix-glib-headers.patch
-Patch4:		meanwhile-1.0.2-fix-build-with-glib-2.31.patch
 
 BuildRequires:	glib2-devel >= 2.2
 BuildRequires:	doxygen
@@ -65,7 +64,6 @@ Documentation for the %{name} library.
 %patch1 -p1
 %patch2 -p0 -b .crash~
 %patch3 -p1 -b .glib~
-%patch4 -p1
 
 %build
 %configure2_5x \
