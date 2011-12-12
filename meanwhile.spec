@@ -2,20 +2,19 @@
 %define lib_name %mklibname %{name} %{lib_major}
 %define lib_devel %mklibname %{name} -d
 
-Summary:        Lotus Sametime Community Client library
-Name:           meanwhile
-Version:        1.0.2
-Release:        7
-
+Summary:	Lotus Sametime Community Client library
+Name:		meanwhile
+Version:	1.0.2
+Release:	8
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://meanwhile.sourceforge.net/
-
-Source: 	http://kent.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.bz2
+Source0: 	http://kent.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		meanwhile-1.0.2-fix-str-fmt.patch
 Patch1:		http://ie.archive.ubuntu.com/gentoo-portage/net-libs/meanwhile/files/meanwhile-1.0.2-presence.patch
 Patch2:		meanwhile-crash.patch
 Patch3:		meanwhile-fix-glib-headers.patch
+Patch4:		meanwhile-1.0.2-fix-build-with-glib-2.31.patch
 
 BuildRequires:	glib2-devel >= 2.2
 BuildRequires:	doxygen
@@ -66,13 +65,17 @@ Documentation for the %{name} library.
 %patch1 -p1
 %patch2 -p0 -b .crash~
 %patch3 -p1 -b .glib~
+%patch4 -p1
 
 %build
-%configure2_5x
+%configure2_5x \
+	--disable-static
+
 %make
 
 %install
 %makeinstall_std
+find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 
 %files -n %{lib_name}
 %doc AUTHORS ChangeLog README TODO
@@ -80,10 +83,9 @@ Documentation for the %{name} library.
 
 %files -n %{lib_devel}
 %{_includedir}/meanwhile
-%{_libdir}/libmeanwhile.a
-%{_libdir}/libmeanwhile.la
 %{_libdir}/libmeanwhile.so
 %{_libdir}/pkgconfig/meanwhile.pc
 
 %files -n %{name}-doc
 %{_datadir}/doc/%{name}-doc-%{version}/
+
