@@ -1,0 +1,11 @@
+--- src/mw_debug.c.str	2009-04-10 17:12:46.000000000 +0200
++++ src/mw_debug.c	2009-04-10 17:12:58.000000000 +0200
+@@ -92,7 +92,7 @@
+   }
+   pretty_print(str, buf, len);
+ 
+-  g_debug(str->str);
++  g_debug("%s",str->str);
+   g_string_free(str, TRUE);
+ }
+ 
