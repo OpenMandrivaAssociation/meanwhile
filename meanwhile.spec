@@ -4,16 +4,12 @@
 
 Summary:	Lotus Sametime Community Client library
 Name:		meanwhile
-Version:	1.0.2
-Release:	22
+Version:	1.1.1
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://meanwhile.sourceforge.net/
-Source0: 	http://kent.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.bz2
-Patch0:		meanwhile-1.0.2-fix-str-fmt.patch
-Patch1:		http://ie.archive.ubuntu.com/gentoo-portage/net-libs/meanwhile/files/meanwhile-1.0.2-presence.patch
-Patch2:		meanwhile-crash.patch
-Patch3:		meanwhile-fix-glib-headers.patch
+Url:		https://github.com/obriencj/meanwhile
+Source0:	https://github.com/obriencj/meanwhile/archive/%{name}-%{version}.tar.gz
 BuildRequires:	doxygen
 BuildRequires:	pkgconfig(glib-2.0)
 
@@ -47,17 +43,16 @@ Provides:	%{name}-devel = %{EVRD}
 This package contains the development files for %{name}.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{libname}
 %{_libdir}/libmeanwhile.so.%{major}*
@@ -68,4 +63,3 @@ This package contains the development files for %{name}.
 %{_libdir}/libmeanwhile.so
 %{_libdir}/pkgconfig/meanwhile.pc
 %{_datadir}/doc/%{name}-doc-%{version}/
-
